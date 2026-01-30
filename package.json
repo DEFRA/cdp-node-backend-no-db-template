@@ -8,8 +8,8 @@
     "node": ">=24"
   },
   "scripts": {
-    "dev": "NODE_ENV=development npm run server:watch",
-    "dev:debug": "NODE_ENV=development npm run server:debug",
+    "dev": "AWS_EMF_ENVIRONMENT=Local NODE_ENV=development npm run server:watch",
+    "dev:debug": "AWS_EMF_ENVIRONMENT=Local NODE_ENV=development npm run server:debug",
     "docker:dev": "npm run dev",
     "format": "prettier --write \"**/*.{cjs,js,json,md}\"",
     "format:check": "prettier --check \"**/*.{cjs,js,json,md}\"",
@@ -29,12 +29,12 @@
   "license": "OGL-UK-3.0",
   "dependencies": {
     "@defra/cdp-auditing": "0.6.0",
+    "@defra/cdp-metrics": "0.5.0",
     "@defra/hapi-secure-context": "0.4.0",
     "@defra/hapi-tracing": "1.30.0",
     "@elastic/ecs-pino-format": "1.5.0",
     "@hapi/boom": "10.0.1",
     "@hapi/hapi": "21.4.4",
-    "aws-embedded-metrics": "4.2.1",
     "aws4": "1.13.2",
     "convict": "6.2.4",
     "convict-format-with-validator": "6.2.0",
