@@ -119,12 +119,6 @@ const config = convict({
     default: null,
     env: 'HTTP_PROXY'
   },
-  isMetricsEnabled: {
-    doc: 'Enable metrics reporting',
-    format: Boolean,
-    default: isProduction,
-    env: 'ENABLE_METRICS'
-  },
   tracing: {
     header: {
       doc: 'CDP tracing header name',
