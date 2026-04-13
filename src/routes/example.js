@@ -1,7 +1,10 @@
 import Boom from '@hapi/boom'
-import { findAllExampleData, findExampleData } from '../example-find.js'
+import {
+  findAllExampleData,
+  findExampleData
+} from '#/services/example/example-find.js'
 
-const example = [
+export const example = [
   {
     method: 'GET',
     path: '/example',
@@ -24,5 +27,3 @@ const example = [
     }
   }
 ]
-
-export { example }
