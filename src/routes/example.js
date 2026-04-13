@@ -1,8 +1,5 @@
 import Boom from '@hapi/boom'
-import {
-  findAllExampleData,
-  findExampleData
-} from '#/services/example/example-find.js'
+import { findAllExampleData, findExampleData } from '#/services/ExampleFind.js'
 
 export const example = [
   {
@@ -10,7 +7,7 @@ export const example = [
     path: '/example',
     handler: async (request, h) => {
       const entities = await findAllExampleData(request.db)
-      return h.response({ message: 'success', entities })
+      return h.response(entities)
     }
   },
   {
@@ -23,7 +20,7 @@ export const example = [
         return Boom.notFound()
       }
 
-      return h.response({ message: 'success', entity })
+      return h.response(entity)
     }
   }
 ]
