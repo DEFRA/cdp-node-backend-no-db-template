@@ -25,7 +25,7 @@
     "test:watch": "TZ=UTC vitest"
   },
   "imports": {
-    "#src/*": "./src/*"
+    "#/*": "./src/*"
   },
   "author": "Defra DDTS",
   "license": "OGL-UK-3.0",
