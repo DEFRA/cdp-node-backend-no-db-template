@@ -1,7 +1,7 @@
 import convict from 'convict'
 import convictFormatWithValidator from 'convict-format-with-validator'
 
-import { convictValidateMongoUri } from './common/helpers/convict/validate-mongo-uri.js'
+import { convictValidateMongoUri } from '#/common/helpers/convict/validate-mongo-uri.js'
 
 convict.addFormat(convictValidateMongoUri)
 convict.addFormats(convictFormatWithValidator)
@@ -9,7 +9,7 @@ convict.addFormats(convictFormatWithValidator)
 const isProduction = process.env.NODE_ENV === 'production'
 const isTest = process.env.NODE_ENV === 'test'
 
-const config = convict({
+export const config = convict({
   serviceVersion: {
     doc: 'The service version, this variable is injected into your docker container in CDP environments',
     format: String,
@@ -130,5 +130,3 @@ const config = convict({
 })
 
 config.validate({ allowed: 'strict' })
-
-export { config }

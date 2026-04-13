@@ -2,17 +2,17 @@ import Hapi from '@hapi/hapi'
 
 import { secureContext } from '@defra/hapi-secure-context'
 
-import { config } from './config.js'
-import { router } from './plugins/router.js'
-import { requestLogger } from './common/helpers/logging/request-logger.js'
-import { mongoDb } from './common/helpers/mongodb.js'
-import { failAction } from './common/helpers/fail-action.js'
-import { pulse } from './common/helpers/pulse.js'
-import { requestTracing } from './common/helpers/request-tracing.js'
-import { setupProxy } from './common/helpers/proxy/setup-proxy.js'
+import { config } from '#/config.js'
+import { router } from '#/plugins/router.js'
+import { requestLogger } from '#/plugins/request-logger.js'
+import { mongoDb } from '#/plugins/mongodb.js'
+import { failAction } from '#/common/helpers/fail-action.js'
+import { pulse } from '#/plugins/pulse.js'
+import { requestTracing } from '#/plugins/request-tracing.js'
+import { setupProxy } from '#/common/helpers/proxy/setup-proxy.js'
 import { metrics } from '@defra/cdp-metrics'
 
-async function createServer() {
+export async function createServer() {
   setupProxy()
   const server = Hapi.server({
     host: config.get('host'),
@@ -62,5 +62,3 @@ async function createServer() {
 
   return server
 }
-
-export { createServer }
