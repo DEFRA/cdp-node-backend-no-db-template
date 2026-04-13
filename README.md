@@ -50,6 +50,14 @@ Install application dependencies:
 npm install
 ```
 
+### Git hooks
+
+Install git hooks (optional)
+
+```bash
+npm run git:hooks
+```
+
 ### Development
 
 To run the application in `development` mode run:
