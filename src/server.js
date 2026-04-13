@@ -12,7 +12,7 @@ import { requestTracing } from '#/plugins/request-tracing.js'
 import { setupProxy } from '#/common/helpers/proxy/setup-proxy.js'
 import { metrics } from '@defra/cdp-metrics'
 
-async function createServer() {
+export async function createServer() {
   setupProxy()
   const server = Hapi.server({
     host: config.get('host'),
@@ -62,5 +62,3 @@ async function createServer() {
 
   return server
 }
-
-export { createServer }

@@ -1,7 +1,7 @@
 import { health } from '#/routes/health.js'
 import { example } from '#/routes/example.js'
 
-const router = {
+export const router = {
   plugin: {
     name: 'router',
     register: (server, _options) => {
@@ -9,5 +9,3 @@ const router = {
     }
   }
 }
-
-export { router }
