@@ -24,6 +24,9 @@
     "test": "TZ=UTC vitest run --coverage",
     "test:watch": "TZ=UTC vitest"
   },
+  "imports": {
+    "#src/*": "./src/*"
+  },
   "author": "Defra DDTS",
   "license": "OGL-UK-3.0",
   "dependencies": {
