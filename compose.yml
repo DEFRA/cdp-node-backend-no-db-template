@@ -21,22 +21,6 @@ services:
     networks:
       - cdp-tenant
 
-  mongodb:
-    image: mongo:7.0.28
-    networks:
-      - cdp-tenant
-    ports:
-      - '27017:27017'
-    volumes:
-      - ./compose/mongo:/docker-entrypoint-initdb.d:ro
-      - mongodb-data:/data
-    healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.hello().ok"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
-      start_period: 30s
-
   ################################################################################
 
   cdp-node-backend-template:
@@ -47,18 +31,14 @@ services:
       - '3001:3001'
     links:
       - 'floci:floci'
-      - 'mongodb:mongodb'
     depends_on:
       floci:
         condition: service_healthy
-      mongodb:
-        condition: service_started
     env_file:
       - 'compose/aws.env'
     environment:
       PORT: 3001
       NODE_ENV: development
-      MONGO_URI: mongodb://mongodb:27017/
     networks:
       - cdp-tenant
     volumes:
@@ -66,9 +46,6 @@ services:
       - ./package.json:/home/node/package.json
 
 ################################################################################
-
-volumes:
-  mongodb-data:
 
 networks:
   cdp-tenant:
