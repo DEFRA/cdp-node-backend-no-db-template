@@ -23,7 +23,7 @@ services:
 
   ################################################################################
 
-  cdp-node-backend-template:
+  cdp-node-backend-no-db-template:
     build:
       context: .
       target: development
